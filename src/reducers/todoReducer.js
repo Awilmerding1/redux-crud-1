@@ -3,19 +3,13 @@
 export default function todoReducer(state = {todos: []}, action) {
   switch (action.type) {
     case 'FETCH_TODOS':
-      return {...state, todos: action.payload}
+      return state
     case 'ADD_TODO':
-      return {...state, todos: [...state.todos, action.payload]}
+      return state
     case 'DELETE_TODO':
-      return {...state, todos: state.todos.filter(todo => todo.id !== action.payload.id)}
+      return state
     case 'EDIT_TODO':
-      return {...state, todos: state.todos.map(todo => {
-        if (todo.id !== action.payload.id) {
-          return todo
-        } else {
-          return action.payload
-        }
-      })}
+      return state
     default:
         return state
   }

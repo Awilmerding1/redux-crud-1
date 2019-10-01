@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {addTodo} from './actions/addTodo'
+
 
 class TodoForm extends React.Component {
 
@@ -14,12 +14,8 @@ class TodoForm extends React.Component {
 
   onSubmit = (event) => {
     event.preventDefault()
-    this.props.addTodo(this.state)
-    this.setState({
-      title: '',
-      description: ''
-    })
   }
+
 
   onChange = (event) => {
     this.setState({
@@ -43,11 +39,6 @@ class TodoForm extends React.Component {
   }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//       addTodo: todo => dispatch({type: 'ADD_TODO', payload: todo})
-//     }
-// }
 
 
-export default connect(null, {addTodo})(TodoForm);
+export default TodoForm
